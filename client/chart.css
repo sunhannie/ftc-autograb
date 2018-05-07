@@ -1,0 +1,56 @@
+:root {
+  --grey-opacity: 0.6;
+  --note-opacity: 0.4;
+  --headline-grey: #43423e;
+  --baseline-grey: #74736c;
+}
+
+.chart-title {
+	font-size: 20px;
+	fill: var(--headline-grey);
+}
+
+.chart-subtitle {
+	font-size: 15px;
+	fill: var(--baseline-grey);
+}
+
+.chart-source {
+	font-size: 10px;
+	fill-opacity: 0.4
+}
+
+.axis {
+	& .domain {
+		fill: none;
+		stroke: var(--baseline-grey);
+	}
+}
+
+.tick {
+	& line {
+		fill: none;
+		stroke: #000;
+		stroke-opacity: 0.2;
+	}
+	& text {
+		fill-opacity: var(--grey-opacity);
+		font-size: 12px;
+	}
+}
+
+.y.axis {
+	& .tick line {
+		stroke-dasharray: 1;
+	}
+
+	& .domain {
+		fill: none;
+		stroke-opacity: 0;
+	}
+
+	& .highlight-line {
+		fill: none;
+		stroke: var(--baseline-grey);
+	}
+}
