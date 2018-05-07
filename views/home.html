@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h1>经济数据一览</h1>
+<nav>
+    <a href="#datasets">下载CSV</a>
+    <a href="#charts">图表</a>
+</nav>
+
+<h2 id="datasets">下载CSV</h2>
+<table class="datasets">
+    <tbody>
+        {% for csv in csvs%}
+        <tr{% if csv.isToday %} class="today" {% endif %}>
+            <td>
+                <a href="http://ig.ft.com/autograph/data/{{csv.name}}">{{csv.name}}</a> {{csv.size}}
+            </td>
+            <td>{{csv.lastModified}}</td>
+            </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+<h2 id="charts">图表</h2>
+<div class="charts">
+    {% for chart in charts %}
+    <div class="chart">
+        <object data="{{env.chartPrefix}}/graphics/{{chart.name}}" type="image/svg+xml"></object>
+        <p>
+            <small>{{chart.lastModified}}</small>
+            {% if chart.isToday %}<span class="label today">Today</span>{% endif %}
+        </p>
+        <p>
+            <a href="{{env.chartPrefix}}/graphics/{{chart.name}}" download>svg ({{chart.size}})</a> |
+            <a href="https://www.ft.com/__origami/service/image/v2/images/raw/{{env.chartPrefix}}/graphics/{{chart.name}}?width=400&format=png&source=ftchinese" download>png</a>
+        </p>
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}

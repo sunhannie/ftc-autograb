@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body %}
+<h2>Autograph Stats</h2>
+<p>Last updated: {{lastUpdated}}</p>
+<h3>Lost charts:</h3>
+<p>This is the discrepancy of the charts that should present and the charts that are actually rendered</p>
+<table>
+  {% for chart in lostCharts %}
+  <tr>
+    <td>{{chart.name}}</td>
+    <td>{{chart.lastModified}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
