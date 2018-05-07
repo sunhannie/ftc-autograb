@@ -4,7 +4,13 @@
   "description": "grab graph ",
   "main": "index.js",
   "scripts": {
-    "test": "start"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postversion": "git push && git push --tags",
+    "clean": "rm -rf public/*",
+    "glossary": "node ./translate/glossary.js",
+    "build": "postcss ./client/*.css --use postcss-nested postcss-css-variables --no-map -d ./public/styles",
+    "charts": "DEBUG=ag* node ./charts",
+    "start": "npm run build && nodemon app.js"
   },
   "repository": {
     "type": "git",

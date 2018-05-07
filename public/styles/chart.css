@@ -1,0 +1,44 @@
+.chart-title {
+	font-size: 20px;
+	fill: #43423e;
+}
+
+.chart-subtitle {
+	font-size: 15px;
+	fill: #74736c;
+}
+
+.chart-source {
+	font-size: 10px;
+	fill-opacity: 0.4
+}
+
+.axis .domain {
+		fill: none;
+		stroke: #74736c;
+	}
+
+.tick line {
+		fill: none;
+		stroke: #000;
+		stroke-opacity: 0.2;
+	}
+
+.tick text {
+		fill-opacity: 0.6;
+		font-size: 12px;
+	}
+
+.y.axis .tick line {
+		stroke-dasharray: 1;
+	}
+
+.y.axis .domain {
+		fill: none;
+		stroke-opacity: 0;
+	}
+
+.y.axis .highlight-line {
+		fill: none;
+		stroke: #74736c;
+	}
